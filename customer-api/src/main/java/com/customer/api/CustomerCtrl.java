@@ -1,8 +1,10 @@
-package com.example.demo;
+package com.customer.api;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,5 +49,11 @@ public class CustomerCtrl {
 	public String refreshData() {
 		customers=new ArrayList<>();
 		return "clean up done!";
+	}
+	
+	@PostConstruct
+	public void init() {
+		customers.add(new Customer(UUID.randomUUID().toString(), 
+				"Akbar", "akbarmd@gmail.com", "1234567", "male", "TS"));
 	}
 }

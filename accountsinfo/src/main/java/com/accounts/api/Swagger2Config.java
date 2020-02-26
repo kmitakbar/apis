@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.accounts.api;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,13 +18,13 @@ public class Swagger2Config {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
             .apis(RequestHandlerSelectors
-                .basePackage("com.example.demo"))
+                .basePackage("com.accounts.api"))
             .paths(PathSelectors.regex("/.*"))
             .build().apiInfo(apiEndPointsInfo());
     }
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("Spring Boot REST API")
-            .description("Employee Management REST API")
+            .description("Accounts Management REST API")
             .contact(new Contact("Akbar MD", "www.i3solutions.com", "akbarmd.mca@gmail.com"))
             .license("Apache 2.0")
             .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
